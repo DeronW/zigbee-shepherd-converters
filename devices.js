@@ -140,7 +140,7 @@ const devices = [
     {
         zigbeeModel: ['00500c33'],
         model: 'REXENSE',
-        vendor: 'hongyar',
+        vendor: 'honyar',
         description: 'hongyar double key wall switch',
         supported: 'independed two channel on/off action',
         fromZigbee: [fz.REXENSE_00500c33],
