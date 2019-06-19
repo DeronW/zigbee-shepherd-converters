@@ -2619,6 +2619,16 @@ const converters = {
             }
         },
     },
+    REXENSE_00500c33: {
+        cid: 'genOnOff',
+        type: ['attReport', 'readRsp', 'devChange'],
+        convert: (model, msg, publish, options) => {
+            return {
+                power: msg.data.data.onOff == 0,
+                channel: msg.endpoints[0].epId
+            }
+        }
+    },
     meazon_meter: {
         cid: 'seMetering',
         type: ['attReport', 'readRsp'],

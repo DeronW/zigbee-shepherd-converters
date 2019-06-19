@@ -136,6 +136,16 @@ const execute = (device, actions, callback, delay) => {
 };
 
 const devices = [
+    // hongyar
+    {
+        zigbeeModel: ['00500c33'],
+        model: 'REXENSE',
+        vendor: 'hongyar',
+        description: 'hongyar double key wall switch',
+        supported: 'independed two channel on/off action',
+        fromZigbee: [fz.REXENSE_00500c33],
+        toZigbee: [tz.REXENSE_00500c33],
+    },
     // Xiaomi
     {
         zigbeeModel: ['lumi.light.aqcn02'],
