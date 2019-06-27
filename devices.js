@@ -140,11 +140,40 @@ const devices = [
     {
         zigbeeModel: ['00500c33'],
         model: 'REXENSE',
-        vendor: 'honyar',
-        description: 'hongyar double key wall switch',
-        supported: 'independed two channel on/off action',
+        vendor: 'Honyar',
+        description: 'honyar double key wall switch',
+        supported: 'cId: 6. independed two channel on/off action',
         fromZigbee: [fz.REXENSE_00500c33],
-        toZigbee: [tz.REXENSE_00500c33],
+        toZigbee: [tz.on_off],
+        ep: (device) => {
+            return {'left': 1, 'right': 2, 'both': 3};
+        },
+    },
+    {
+        zigbeeModel: ['HY1005'],
+        model: 'REXENSE',
+        vendor: 'Honyar',
+        description: 'hogyar smart lamb',
+        supported: 'cId: 8. on/off and brightness/hue',
+        extend: generic.light_onoff_brightness_colortemp,
+    },
+    {
+        zigbeeModel: ['0001112b'],
+        model: 'REXENSE',
+        vendor: 'Honyar',
+        description: 'honyar air sensor',
+        support: '',
+        fromZigbee: [fz.REXENSE_0001112b],
+        toZigbee: []
+    },
+    {
+        zigbeeModel: ['HY0093'],
+        model: 'REXENSE',
+        vendor: 'Honyar',
+        description: 'honyar door sensor',
+        support: '',
+        fromZigbee: [],
+        toZigbee: []
     },
     // Xiaomi
     {

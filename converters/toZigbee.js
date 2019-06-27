@@ -1055,21 +1055,6 @@ const converters = {
             }
         },
     },
-    
-    REXENSE_00500c33: {
-        key: ['state'],
-        convert: (key, value, message, type, postfix) => {
-            if (type == 'set'){
-                return [{
-                    cid: 'genBasic',
-                    cmd: '',
-                    cmdType: 'functional',
-                    zclData: {},
-                    cfg: cfg.default
-                }]
-            }
-        }
-    },
     osram_cmds: {
         key: ['osram_set_transition', 'osram_remember_state'],
         convert: (key, value, message, type, postfix) => {

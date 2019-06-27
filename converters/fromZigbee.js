@@ -2629,6 +2629,16 @@ const converters = {
             }
         }
     },
+    REXENSE_0001112b: {
+        cid: '',
+        type: [],
+        convert: (model, msg, publish, options) => {
+            console.log('TODO', 'zigbee-shepherd/converters/fromZigbee.js:2636')
+            return {
+
+            }
+        }
+    },
     meazon_meter: {
         cid: 'seMetering',
         type: ['attReport', 'readRsp'],
