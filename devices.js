@@ -139,7 +139,7 @@ const devices = [
     // hongyar
     {
         zigbeeModel: ['00500c33'],
-        model: 'REXENSE',
+        model: 'REXENSE_switch2',
         vendor: 'Honyar',
         description: 'honyar double key wall switch',
         supported: 'cId: 6. independed two channel on/off action',
@@ -151,28 +151,58 @@ const devices = [
     },
     {
         zigbeeModel: ['HY1005'],
-        model: 'REXENSE',
+        model: 'REXENSE_lamb',
         vendor: 'Honyar',
-        description: 'hogyar smart lamb',
+        description: 'honyar smart lamb',
         supported: 'cId: 8. on/off and brightness/hue',
         extend: generic.light_onoff_brightness_colortemp,
     },
     {
+        zigbeeModel: ['00041580'],
+        model: 'REXENSE_motor',
+        vendor: 'Honyar',
+        description: 'honyar electric motor',
+        supported: 'turn/stop',
+        // fromZigbee: [fz.REXENSE_00041580],
+        fromZigbee: [],
+        toZigbee: []
+        // toZigbee: [tz.REXENSE_00041580]
+    },
+    {
         zigbeeModel: ['0001112b'],
-        model: 'REXENSE',
+        model: 'REXENSE_air_sensor',
         vendor: 'Honyar',
         description: 'honyar air sensor',
-        support: '',
-        fromZigbee: [fz.REXENSE_0001112b],
+        support: 'monitor air quality',
+        fromZigbee: [],
         toZigbee: []
     },
     {
         zigbeeModel: ['HY0093'],
-        model: 'REXENSE',
+        model: 'REXENSE_door_sensor',
         vendor: 'Honyar',
         description: 'honyar door sensor',
         support: '',
-        fromZigbee: [],
+        fromZigbee: [fz.generic_battery],
+        toZigbee: []
+    },{
+        zigbeeModel: ['005d0e11'],
+        model: 'REXENSE_water_sensor',
+        vendor: 'Honyar',
+        description: 'water sensor',
+        support: '',
+        fromZigbee: [fz.REXENSE_005d0e11],
+        toZigbee: []
+    },
+    {
+        zigbeeModel: ['005f0c3b'],
+        model: 'REXENSE_keys6',
+        vendor: 'Honyar',
+        description: '带显示屏的6键控制板',
+        support: '6 keys',
+        fromZigbee: [
+            fz.REXENSE_005f0c3b, fz.ignore_basic_report
+        ],
         toZigbee: []
     },
     // Xiaomi
@@ -4190,7 +4220,7 @@ const devices = [
         vendor: 'Honyar',
         description: '3 gang switch ',
         supports: 'on/off',
-        fromZigbee: [],
+        fromZigbee: [fz.REXENSE_00500c35],
         toZigbee: [tz.on_off],
         ep: (device) => {
             return {'left': 1, 'center': 2, 'right': 3};

@@ -2629,13 +2629,58 @@ const converters = {
             }
         }
     },
-    REXENSE_0001112b: {
-        cid: '',
-        type: [],
+    REXENSE_00500c35: {
+        cid: 'genOnOff',
+        type: ['attReport', 'readRsp', 'devChange'],
         convert: (model, msg, publish, options) => {
-            console.log('TODO', 'zigbee-shepherd/converters/fromZigbee.js:2636')
             return {
+                power: msg.data.data.onOff == 0,
+                channel: msg.endpoints[0].epId
+            }
+        }
+    },
+    REXENSE_005d0e11: {
+        cid: 'ssIasZone',
+        type: ['statusChange'],
+        convert: (model, msg, publish, options) => {
+            let WaterSensorState = 0;
+            if(msg.data.zoneStatus == 33)WaterSensorState = 1
+            if(msg.data.zoneStatus == 32)WaterSensorState = 0
+            return {
+                WaterSensorState
+            }
+        }
+    },
+    // REXENSE_0001112b_humidity: {
+    //     cid: 'msRelativeHumidity',
+    //     type: ['attReport', 'readRsp'],
+    //     convert: (model, msg, publish, options) => {
+    //         const humidity = parseFloat(msg.data.data['measuredValue']) / 100.0;
 
+    //         if (humidity >= 0 && humidity <= 100) {
+    //             return {CurrentHumidity: precisionRoundOptions(humidity, options, 'humidity')};
+    //         }
+    //     },
+    // },
+    // REXENSE_00041580: {
+    //     cid: 'closuresWindowCovering',
+    //     type: ['attReport', 'readRsp'],
+
+    //     convert: (model, msg, publish, options) => {
+    //         // console.log(1111111, msg)
+    //         // data: { '65533': 1, windowCoveringMode: 20 }
+    //         return {
+    //             CurtainPosition:msg.data.currentPositionLiftPercentage,
+    //             CurtainOperation: msg.data.windowCoveringMode
+    //         }
+    //     }
+    // },
+    REXENSE_005f0c3b: {
+        cid: 65029,
+        type: ['attReport'],
+        convert: (model, msg, publish, options) => {
+            return {
+                KeyValue: msg.data.data['0']
             }
         }
     },

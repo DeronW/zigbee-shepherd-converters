@@ -1442,6 +1442,20 @@ const converters = {
             }
         },
     },
+    
+    // REXENSE_00041580: {
+    //     cid: 'closuresWindowCovering',
+    //     type: ['attReport', 'readRsp'],
+
+    //     convert: (model, msg, publish, options) => {
+    //         // console.log(1111111, msg)
+    //         // data: { '65533': 1, windowCoveringMode: 20 }
+    //         return {
+    //             CurtainPosition:msg.data.currentPositionLiftPercentage,
+    //             CurtainOperation: msg.data.windowCoveringMode
+    //         }
+    //     }
+    // },
 
     /**
      * Ignore converters
