@@ -2651,17 +2651,34 @@ const converters = {
             }
         }
     },
-    // REXENSE_0001112b_humidity: {
-    //     cid: 'msRelativeHumidity',
-    //     type: ['attReport', 'readRsp'],
-    //     convert: (model, msg, publish, options) => {
-    //         const humidity = parseFloat(msg.data.data['measuredValue']) / 100.0;
+    REXENSE_HY0093_iaszone: {
+        cid: 'ssIasZone',
+        type: ['statusChange'],
+        convert: (model, msg, publish, options) => {
+            let ContactState = 0;
+            if(msg.data.zoneStatus == 33) ContactState = 1; // open
+            if(msg.data.zoneStatus == 32) ContactState = 0; // close
+            return {
+                ContactState
+            }
+        }
+    },
+    REXENSE_0001112b_humidity: {
+        cid: 'msRelativeHumidity',
+        type: ['attReport', 'readRsp', 'devChange'],
+        convert: (model, msg, publish, options) => {
+            const humidity = parseFloat(msg.data.data['measuredValue']) / 100.0;
 
-    //         if (humidity >= 0 && humidity <= 100) {
-    //             return {CurrentHumidity: precisionRoundOptions(humidity, options, 'humidity')};
-    //         }
-    //     },
-    // },
+            if (humidity >= 0 && humidity <= 100) {
+                return {CurrentHumidity: precisionRoundOptions(humidity, options, 'humidity')};
+            }
+        },
+    },
+    REXENSE_0001112b_ignore: {
+        cid: 65026,
+        type: ['attReport', 'readRsp'],
+        convert: (model, msg, publish, options) => null,
+    },
     // REXENSE_00041580: {
     //     cid: 'closuresWindowCovering',
     //     type: ['attReport', 'readRsp'],

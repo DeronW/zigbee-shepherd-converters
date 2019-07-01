@@ -174,7 +174,10 @@ const devices = [
         vendor: 'Honyar',
         description: 'honyar air sensor',
         support: 'monitor air quality',
-        fromZigbee: [],
+        fromZigbee: [
+            fz.battery_200, fz.generic_temperature, 
+            fz.REXENSE_0001112b_humidity
+        ],
         toZigbee: []
     },
     {
@@ -183,7 +186,11 @@ const devices = [
         vendor: 'Honyar',
         description: 'honyar door sensor',
         support: '',
-        fromZigbee: [fz.generic_battery],
+        fromZigbee: [
+            fz.generic_battery, 
+            fz.REXENSE_HY0093_iaszone,
+            fz.REXENSE_0001112b_ignore
+        ],
         toZigbee: []
     },{
         zigbeeModel: ['005d0e11'],
