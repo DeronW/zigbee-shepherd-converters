@@ -192,7 +192,17 @@ const devices = [
             fz.REXENSE_0001112b_ignore
         ],
         toZigbee: []
-    },{
+    },
+    {
+        zigbeeModel: ['HY0112'],
+        model: 'REXENSE_iHouse',
+        vendor: 'Honyar',
+        description: 'honyar smart hub',
+        support: '',
+        fromZigbee: [fz.REXENSE_005f0c3b],
+        toZigbee: []
+    },
+    {
         zigbeeModel: ['005d0e11'],
         model: 'REXENSE_water_sensor',
         vendor: 'Honyar',
