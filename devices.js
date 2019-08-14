@@ -199,7 +199,12 @@ const devices = [
         vendor: 'Honyar',
         description: 'honyar smart hub',
         support: '',
-        fromZigbee: [fz.REXENSE_005f0c3b],
+        fromZigbee: [
+            fz.REXENSE_005f0c3b, 
+            fz.generic_fan_mode,
+            fz.ignore_basic_report,
+            fz.thermostat_att_report
+        ],
         toZigbee: []
     },
     {
