@@ -203,9 +203,39 @@ const devices = [
             fz.REXENSE_005f0c3b, 
             fz.generic_fan_mode,
             fz.ignore_basic_report,
-            fz.thermostat_att_report
+            fz.thermostat_att_report,
+            fz.ignore_thermostat_change,
+            fz.generic_fan_mode,
+            fz.ignore_fan_change
         ],
-        toZigbee: []
+        toZigbee: [
+            tz.fan_mode
+        ],
+        ep: device => {
+            return {'l1': 1, 'l2': 2, 'l3': 3};
+        }
+    },
+    {
+        zigbeeModel: ['HY0134'],
+        model: 'REXENSE_iHouse',
+        vendor: 'Honyar',
+        description: 'honyar smart hub',
+        support: '',
+        fromZigbee: [
+            fz.REXENSE_005f0c3b, 
+            fz.generic_fan_mode,
+            fz.ignore_basic_report,
+            fz.thermostat_att_report,
+            fz.ignore_thermostat_change,
+            fz.generic_fan_mode,
+            fz.ignore_fan_change
+        ],
+        toZigbee: [
+            tz.fan_mode
+        ],
+        ep: device => {
+            return {'l1': 1, 'l2': 2, 'l3': 3};
+        }
     },
     {
         zigbeeModel: ['005d0e11'],
