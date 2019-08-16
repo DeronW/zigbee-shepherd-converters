@@ -231,7 +231,8 @@ const devices = [
             fz.ignore_fan_change
         ],
         toZigbee: [
-            tz.fan_mode
+            tz.fan_mode,
+            tz.thermostat_system_mode
         ],
         ep: device => {
             return {'l1': 1, 'l2': 2, 'l3': 3};
